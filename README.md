@@ -34,5 +34,22 @@ Por ultimo tenemos lenguajes Interpretados vs Compilados
 
 # Enumeración exhaustiva
 
-Es un algoritmo en donde simplemente enumeramos todas la posibilidades **Tambien llamado "adivina y verifica"**
+Es un algoritmo en donde simplemente enumeramos todas la posibilidades **Tambien llamado "adivina y verifica"**, por esto mismo no es el metodo mas eficiente, pero en todo el universo de posibles soluciones, este puede que sea el mas acertado en algun momento.
+
+```py
+number = int(input('Escoge un entero: '))
+
+"""Iniciamos respuesta en cero"""
+respuesta = 0
+
+"""Mientras respuesta al cuadrado sea menor a number (si es igual es la raiz - si es mayor no es exacta)"""
+while respuesta**2 < number:
+    print(respuesta)
+    respuesta += 1 # Se le suma 1 al valor
+    
+if respuesta**2 == number:
+    print(f'La raiz cuadrada de {number} es {respuesta}')
+else:
+    print(f'{number} no tiene raiz cuadrada exacta')
+```
 
