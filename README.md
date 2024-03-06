@@ -76,3 +76,49 @@ if abs(respuesta**2 - number) >= epsilon:
 else:
     print(f"La raíz cuadrada de {number} es {respuesta}")
 ```
+
+# Busqueda Binaria
+
+Uno de los algoritmos mas importante de Computer Science y de los mas eficientes. Cuando utilizamos la busqueda binaria uno de los requisitos es que nuestro conjunto de busqueda tiene que estar ordenado **TIENE QUE EXISTIR UN ORDEN**.
+
+> Es altamente eficiente, pues corta el espacio de búsqueda en dos por cada iteración
+
+Los pasos son los siguientes:
+
+1. Consideramos como segmento inicial de búsqueda a la lista completa.
+2. Analizamos el punto medio del segmento (el valor central), si es el valor buscado, devolvemos el índice del punto medio.
+3. Si el valor central es mayor al buscado, podemos descartar el segmento que está desde el punto medio hacia la a derecha.
+4. Si el valor central es menor al buscado, podemos descartar el segmento que está desde el punto medio hacia la izquierda.
+5. Una vez descartado el segmento que no nos interesa, volvemos a analizar el segmento restante, de la misma forma.
+6. Si en algún momento el segmento a analizar tiene longitud 0 o negativa significa que el valor buscado no se encuentra en la lista.
+
+```py
+number = int(input("Ingrese un número: "))
+
+epsilon = 0.01  # Definimos nuestro margen de error.
+bajo = 0.0  # Inicializamos la parte baja de nuestra búsqueda como 0
+alto = max(1.0, number)  # Entre el numero que ingresamos y 1 vamos a tomar el mayor valor.
+respuesta = (alto + bajo) / 2  # Definimos la mitad entre bajo y alto.
+
+
+# Mientras el margen de error sea mayor a epsilon.
+while abs(respuesta**2 - number) >= epsilon:
+    print(f"bajo = {bajo}, alto = {alto}, respuesta = {respuesta}")
+    
+    # Si ((alto+bajo)/2)^2 es menor a nuestro numero objetivo
+    if respuesta**2 < number:
+
+        # Definimos la parte baja de nuestra búsqueda como (alto + bajo)/2
+        bajo = respuesta
+
+     # En caso que (alto+bajo)/2 es mayor a nuestro numero objetivo
+    else:
+
+         # Definimos la parte alta de nuestra búsqueda como (alto + bajo)/2
+        alto = respuesta
+
+    # Luego definimos nuevamente la mitad entre alto y bajo.
+    respuesta = (alto + bajo) / 2
+    
+print(f"La raíz cuadrada de {number} es {respuesta}")
+```
