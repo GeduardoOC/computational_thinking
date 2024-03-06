@@ -30,3 +30,9 @@ Existen lenguajes Generales y de Dominio especifico
 Por ultimo tenemos lenguajes Interpretados vs Compilados
 > Interpretados significa que mientras corre el programa, despues de cada instruccion, esta instruccion se traduce a lenguajen maquina y la maquina lo puede leer.
 > Compilado significa que antes se traduce todo el programa a lenguaje maquina, y despues se entrega a la computadora para que lo compile.
+
+
+# Enumeración exhaustiva
+
+Es un algoritmo en donde simplemente enumeramos todas la posibilidades **Tambien llamado "adivina y verifica"**
+
