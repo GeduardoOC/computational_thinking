@@ -53,3 +53,26 @@ else:
     print(f'{number} no tiene raiz cuadrada exacta')
 ```
 
+# Aproximacion de soluciones
+
+Similar a Enumeracion Exhaustiva, pero no necesita una respuesta exacta. Porque hay ocaciones donde la solucion no es exacta y tenemos que da runa respuesta, para esto tenemos algoritmos de aproximacion de soluciones.
+
+> Cuando vamos a aproximar una solucion, tenemos que definir que tan cerca queremos estar de esta solucion, y ha esta diferencia entre la realidad y la solucion la vamos a llamar **Epsilon**
+
+Como siempre en programación debemos hacer un _trade-off_, no podemos ser precisos y rápidos a la vez, por lo tanto cuando nuestro **epsilon** es muy pequeño esto significa que debemos realizar **mas iteraciones** para llegar a la aproximación, lo cual significa sacrificar tiempo. Y por otro lado si queremos que nuestro **tiempo de ejecución** sea lo **mas corto posible** debemos sacrificar la **precisión** aumentando el valor de **epsilon**.
+
+```py
+number = int(input("Ingrese un número: "))
+epsilon = 0.01  # Definimos un margen de error.
+paso = epsilon**2  # Los pasos para buscar la raíz sera igual a epsilon^2
+respuesta = 0.0  # Inicializamos una respuesta 0
+
+while abs(respuesta**2 - number) >= epsilon and respuesta <= number:
+    print(abs(respuesta**2 - number), respuesta)
+    respuesta += paso
+    
+if abs(respuesta**2 - number) >= epsilon:
+    print(f"No se encontró la raíz cuadrada de {number}")
+else:
+    print(f"La raíz cuadrada de {number} es {respuesta}")
+```
